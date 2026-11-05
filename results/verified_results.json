@@ -1,0 +1,391 @@
+{
+  "metadata": {
+    "title": "RTOS-Sim Verified Experimental Results",
+    "generator": "run_experiments.js",
+    "generatedAt": "2026-11-05T17:00:30.155Z",
+    "seed": 2026,
+    "totalTestsPassed": 14
+  },
+  "experiment1": {
+    "description": "Main task set (Temperature Node) under RM and EDF",
+    "tasks": [
+      {
+        "name": "Sensor",
+        "C": 1,
+        "T": 4,
+        "D": 4,
+        "phase": 0
+      },
+      {
+        "name": "Control",
+        "C": 2,
+        "T": 6,
+        "D": 6,
+        "phase": 0
+      },
+      {
+        "name": "Logger",
+        "C": 3,
+        "T": 12,
+        "D": 12,
+        "phase": 0
+      }
+    ],
+    "utilization": 0.8333333333333333,
+    "rmBound": 0.7797631496846196,
+    "rta": [
+      {
+        "name": "Sensor",
+        "C": 1,
+        "T": 4,
+        "D": 4,
+        "R": 1,
+        "schedulable": true,
+        "iterations": [
+          1,
+          1
+        ]
+      },
+      {
+        "name": "Control",
+        "C": 2,
+        "T": 6,
+        "D": 6,
+        "R": 3,
+        "schedulable": true,
+        "iterations": [
+          2,
+          3,
+          3
+        ]
+      },
+      {
+        "name": "Logger",
+        "C": 3,
+        "T": 12,
+        "D": 12,
+        "R": 10,
+        "schedulable": true,
+        "iterations": [
+          3,
+          6,
+          7,
+          9,
+          10,
+          10
+        ]
+      }
+    ],
+    "RM": {
+      "busyTicks": 10,
+      "elapsedTicks": 12,
+      "utilizationPercent": 83.33333333333334,
+      "preemptions": 2,
+      "handoffs": 7,
+      "totalMisses": 0,
+      "tasks": [
+        {
+          "name": "Sensor",
+          "jobs": 3,
+          "worstResponse": 1,
+          "avgResponse": 1,
+          "maxLateness": -3,
+          "misses": 0
+        },
+        {
+          "name": "Control",
+          "jobs": 2,
+          "worstResponse": 3,
+          "avgResponse": 2.5,
+          "maxLateness": -3,
+          "misses": 0
+        },
+        {
+          "name": "Logger",
+          "jobs": 1,
+          "worstResponse": 10,
+          "avgResponse": 10,
+          "maxLateness": -2,
+          "misses": 0
+        }
+      ]
+    },
+    "EDF": {
+      "busyTicks": 10,
+      "elapsedTicks": 12,
+      "utilizationPercent": 83.33333333333334,
+      "preemptions": 1,
+      "handoffs": 6,
+      "totalMisses": 0,
+      "tasks": [
+        {
+          "name": "Sensor",
+          "jobs": 3,
+          "worstResponse": 2,
+          "avgResponse": 1.33,
+          "maxLateness": -2,
+          "misses": 0
+        },
+        {
+          "name": "Control",
+          "jobs": 2,
+          "worstResponse": 3,
+          "avgResponse": 3,
+          "maxLateness": -3,
+          "misses": 0
+        },
+        {
+          "name": "Logger",
+          "jobs": 1,
+          "worstResponse": 7,
+          "avgResponse": 7,
+          "maxLateness": -5,
+          "misses": 0
+        }
+      ]
+    }
+  },
+  "experiment2": {
+    "description": "Heavily loaded task set (T1 and T2) under RM and EDF",
+    "tasks": [
+      {
+        "name": "T1",
+        "C": 2,
+        "T": 5,
+        "D": 5,
+        "phase": 0
+      },
+      {
+        "name": "T2",
+        "C": 4,
+        "T": 7,
+        "D": 7,
+        "phase": 0
+      }
+    ],
+    "utilization": 0.9714285714285714,
+    "rmBound": 0.8284271247461903,
+    "rta": [
+      {
+        "name": "T1",
+        "C": 2,
+        "T": 5,
+        "D": 5,
+        "R": 2,
+        "schedulable": true,
+        "iterations": [
+          2,
+          2
+        ]
+      },
+      {
+        "name": "T2",
+        "C": 4,
+        "T": 7,
+        "D": 7,
+        "R": 8,
+        "schedulable": false,
+        "iterations": [
+          4,
+          6,
+          8
+        ]
+      }
+    ],
+    "RM": {
+      "busyTicks": 34,
+      "elapsedTicks": 35,
+      "preemptions": 5,
+      "handoffs": 16,
+      "totalMisses": 1,
+      "tasks": [
+        {
+          "name": "T1",
+          "jobs": 7,
+          "worstResponse": 2,
+          "avgResponse": 2,
+          "maxLateness": -3,
+          "misses": 0
+        },
+        {
+          "name": "T2",
+          "jobs": 5,
+          "worstResponse": 8,
+          "avgResponse": 6.8,
+          "maxLateness": 1,
+          "misses": 1
+        }
+      ]
+    },
+    "EDF": {
+      "busyTicks": 34,
+      "elapsedTicks": 35,
+      "preemptions": 1,
+      "handoffs": 12,
+      "totalMisses": 0,
+      "tasks": [
+        {
+          "name": "T1",
+          "jobs": 7,
+          "worstResponse": 4,
+          "avgResponse": 2.86,
+          "maxLateness": -1,
+          "misses": 0
+        },
+        {
+          "name": "T2",
+          "jobs": 5,
+          "worstResponse": 6,
+          "avgResponse": 5.2,
+          "maxLateness": -1,
+          "misses": 0
+        }
+      ]
+    }
+  },
+  "experiment3": {
+    "description": "Mutex lab: priority inversion and priority inheritance",
+    "jobs": [
+      {
+        "name": "Logger",
+        "priority": 1,
+        "arrival": 0,
+        "program": [
+          {
+            "lock": 3
+          },
+          {
+            "run": 1
+          }
+        ]
+      },
+      {
+        "name": "Sensor",
+        "priority": 3,
+        "arrival": 1,
+        "program": [
+          {
+            "lock": 1
+          },
+          {
+            "run": 1
+          }
+        ]
+      },
+      {
+        "name": "Control",
+        "priority": 2,
+        "arrival": 2,
+        "program": [
+          {
+            "run": 4
+          }
+        ]
+      }
+    ],
+    "noInheritance": {
+      "inversionTicks": 4,
+      "totalTicks": 10,
+      "jobs": [
+        {
+          "name": "Logger",
+          "priority": 1,
+          "arrival": 0,
+          "start": 0,
+          "finish": 10,
+          "response": 10,
+          "blockedTicks": 0
+        },
+        {
+          "name": "Sensor",
+          "priority": 3,
+          "arrival": 1,
+          "start": 7,
+          "finish": 9,
+          "response": 8,
+          "blockedTicks": 6
+        },
+        {
+          "name": "Control",
+          "priority": 2,
+          "arrival": 2,
+          "start": 2,
+          "finish": 6,
+          "response": 4,
+          "blockedTicks": 0
+        }
+      ]
+    },
+    "withInheritance": {
+      "inversionTicks": 0,
+      "totalTicks": 10,
+      "jobs": [
+        {
+          "name": "Logger",
+          "priority": 1,
+          "arrival": 0,
+          "start": 0,
+          "finish": 10,
+          "response": 10,
+          "blockedTicks": 0
+        },
+        {
+          "name": "Sensor",
+          "priority": 3,
+          "arrival": 1,
+          "start": 3,
+          "finish": 5,
+          "response": 4,
+          "blockedTicks": 2
+        },
+        {
+          "name": "Control",
+          "priority": 2,
+          "arrival": 2,
+          "start": 5,
+          "finish": 9,
+          "response": 7,
+          "blockedTicks": 0
+        }
+      ]
+    }
+  },
+  "experiment4": {
+    "description": "2000 seeded random workloads (seed 2026, U in [0.60, 1.00])",
+    "totalSets": 2000,
+    "overallRmPass": 1840,
+    "overallRmPassPercent": 92,
+    "overallEdfPass": 2000,
+    "overallEdfPassPercent": 100,
+    "bins": {
+      "0.60-0.70": {
+        "taskSets": 333,
+        "rmPass": 333,
+        "rmPassPercent": 100,
+        "edfPass": 333,
+        "edfPassPercent": 100
+      },
+      "0.70-0.80": {
+        "taskSets": 528,
+        "rmPass": 528,
+        "rmPassPercent": 100,
+        "edfPass": 528,
+        "edfPassPercent": 100
+      },
+      "0.80-0.90": {
+        "taskSets": 536,
+        "rmPass": 527,
+        "rmPassPercent": 98.3,
+        "edfPass": 536,
+        "edfPassPercent": 100
+      },
+      "0.90-1.00": {
+        "taskSets": 603,
+        "rmPass": 452,
+        "rmPassPercent": 75,
+        "edfPass": 603,
+        "edfPassPercent": 100
+      }
+    }
+  }
+}
